@@ -54,7 +54,7 @@ function App({ Component, pageProps }) {
                 <title>Payroll App</title>
             </Head>
 
-            <div className={`app-container ${user ? 'bg-light' : ''}`}>
+            <div className={`app-container`}>
                 <Nav />
                 <Alert />
                 {authorized &&

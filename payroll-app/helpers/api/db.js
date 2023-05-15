@@ -1,7 +1,8 @@
 import getConfig from 'next/config';
 import mysql from 'mysql2/promise';
 import { Sequelize, DataTypes } from 'sequelize';
-
+import { userModel } from '../../database/models/user.model';
+import { employeeModel } from '../../database/models/employee.model';
 const { serverRuntimeConfig } = getConfig();
 
 export const db = {
@@ -27,49 +28,4 @@ async function initialize() {
     await sequelize.sync({ alter: true });
 
     db.initialized = true;
-}
-
-// sequelize models with schema definitions
-
-function userModel(sequelize) {
-    const attributes = {
-        username: { type: DataTypes.STRING, allowNull: false },
-        hash: { type: DataTypes.STRING, allowNull: false },
-        firstName: { type: DataTypes.STRING, allowNull: false },
-        lastName: { type: DataTypes.STRING, allowNull: false }
-    };
-
-    const options = {
-        defaultScope: {
-            // exclude password hash by default
-            attributes: { exclude: ['hash'] }
-        },
-        scopes: {
-            // include hash with this scope
-            withHash: { attributes: {}, }
-        }
-    };
-
-    return sequelize.define('User', attributes, options);
-}
-
-function employeeModel(sequelize) {
-    const attributes = {
-        firstName: { type: DataTypes.STRING, allowNull: false },
-        lastName: { type: DataTypes.STRING, allowNull: false },
-        salary: { type: DataTypes.DECIMAL, allowNull: false }
-    };
-
-    const options = {
-        defaultScope: {
-            // exclude password hash by default
-            attributes: { exclude: ['hash'] }
-        },
-        scopes: {
-            // include hash with this scope
-            withHash: { attributes: {}, }
-        }
-    };
-
-    return sequelize.define('Employee', attributes, options);
 }

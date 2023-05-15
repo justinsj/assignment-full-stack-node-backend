@@ -10,8 +10,9 @@ function Home() {
             <div className="container">
                 <h1>Hi {userService.userValue?.firstName}!</h1>
                 <p>You&apos;re logged in with Next.js & JWT!!</p>
-                <p><Link href="/employees">Manage Employees</Link></p>
-                <p><Link href="/users">Manage Users</Link></p>
+                <p>This app is created with Tailwind CSS</p>
+                <p><Link href="/employees">&gt;&gt; Manage Employees</Link></p>
+                <p><Link href="/users">&gt;&gt; Manage Users</Link></p>
             </div>
         </div>
     );

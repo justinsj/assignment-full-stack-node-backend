@@ -1,5 +1,16 @@
-# next-js-13-mysql-registration-login-example
+# Payroll App
 
-Next.js 13 + MySQL - User Registration and Login Example
+## Installation
+```
+```
 
-Documentation at https://jasonwatmore.com/next-js-13-mysql-user-registration-and-login-tutorial-with-example-app
+## Usage
+Start the MySQL database
+```
+docker-compose -f database\docker-compose.yaml up
+```
+
+Start the Payroll App, which includes API endpoints.
+```
+npm run dev
+```

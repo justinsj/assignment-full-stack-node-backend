@@ -1,3 +1,7 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
 /* Define colors */
 :root {
     --main-color:#1F1F1F;
@@ -9,7 +13,7 @@
     --button-tertiary-color: #FA1A1A;
 }
 
-a { cursor: pointer; }
+a { cursor: pointer; text-decoration: none; }
 
 
 h1 {
@@ -24,6 +28,7 @@ th {
 .table td {
     color: var(--tertiary-color);
     vertical-align: middle;
+    font-weight: 500;
 }
 .app-container {
     min-height: 350px;
@@ -48,4 +53,12 @@ th {
     box-sizing: content-box;
     color: var(--button-tertiary-color);
     font-weight: 500;
+}
+.table>:not(caption)>*>* {
+    border-bottom-width: 0;
+}
+
+tbody {
+    border-top-width: 1px;
+    border-bottom-width: 1px;
 }
