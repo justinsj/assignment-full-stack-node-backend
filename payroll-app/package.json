@@ -7,7 +7,7 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "mystart": "node --require ./database/server-preload.js ./node_modules/.bin/next dev"
+        "init-db": "tsx database/init-db.js"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.1.0",
@@ -27,5 +27,8 @@
         "sequelize": "^6.31.0",
         "sequelize-fixtures": "^1.2.0",
         "yup": "^1.1.1"
+    },
+    "devDependencies": {
+        "tsx": "^3.12.7"
     }
 }

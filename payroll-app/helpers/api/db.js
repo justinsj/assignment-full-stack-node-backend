@@ -3,7 +3,6 @@ import mysql from 'mysql2/promise';
 import { Sequelize, DataTypes } from 'sequelize';
 import { userModel } from '../../database/models/user.model';
 import { employeeModel } from '../../database/models/employee.model';
-import { initializeData } from '../../database/server-preload';
 const { serverRuntimeConfig } = getConfig();
 
 export const db = {
@@ -28,9 +27,6 @@ async function initialize() {
 
     // sync all models with database
     await sequelize.sync({ alter: true });
-
-    // Initialize data
-    initializeData(sequelize);
     
     db.initialized = true;
 }
