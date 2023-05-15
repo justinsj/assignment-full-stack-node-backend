@@ -1,0 +1,47 @@
+
+/* Define colors */
+:root {
+    --main-color:#1F1F1F;
+    --secondary-color: #9EAAB2;
+    --tertiary-color: #5E717F;
+    --primary-button-color: #74DB35;
+    --secondary-button-color: #FD792E;
+    --tertiary-button-color: #FA1A1A;
+
+    background-color: 
+}
+
+a { cursor: pointer; }
+
+
+h1 {
+    color: var(--main-color);
+}
+
+th {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.table td {
+    color: var(--tertiary-color);
+    vertical-align: middle;
+}
+.app-container {
+    min-height: 350px;
+}
+
+.btn-edit-employee {
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
+    color: var(--secondary-button-color);
+    font-weight: 500;
+}
+.btn-delete-employee {
+    width: 40px;
+    text-align: center;
+    box-sizing: content-box;
+    color: var(--tertiary-button-color);
+    font-weight: 500;
+}

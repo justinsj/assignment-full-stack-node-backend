@@ -1,0 +1,33 @@
+[
+    {
+        "firstName": "Ian",
+        "lastName": "Malcolm",
+        "salary": 70000,
+        "id": "abcd2e"
+    },
+    {
+        "firstName": "Ellie",
+        "lastName": "Sattler",
+        "salary": 102000,
+        "id": "abcde3",
+        "dateUpdated": "2023-05-15T17:48:45.801Z"
+    },
+    {
+        "firstName": "John",
+        "lastName": "Hammond",
+        "salary": 89600,
+        "id": "abcde5"
+    },
+    {
+        "firstName": "Ray",
+        "lastName": "Arnold",
+        "salary": 45000,
+        "id": "abcde6"
+    },
+    {
+        "firstName": "Laura",
+        "lastName": "Burnett",
+        "salary": 80000,
+        "id": "abcde7"
+    }
+]
