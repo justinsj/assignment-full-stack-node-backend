@@ -1,26 +1,43 @@
-import { userModel } from './models/user.model';
+import bcrypt from 'bcryptjs';
 import { employeeModel } from './models/employee.model';
+import { userModel } from './models/user.model';
 const sequelize_fixtures = require('sequelize-fixtures');
 
-export function initializeData(sequelize){
-  // Load the models mapping
-  const models = {
-    'employees': employeeModel(sequelize),
-    'user': userModel(sequelize)
-  }
 
-  // Reformat data to sequelize_fixures format
-  // The input file format is { table: [{col: val},...] }
-  // The required format is an array of { model, data: {col: val}}
-  const data = require('../../data.json');
+function initializeFixtures({data, models}){
+  /*
+  * Load database fixtures from a file
+  * @param {string} filepath - The path to the file to load
+  * @param {object} models - The sequelize models to load the fixtures into
+  * 
+  * @returns undefined
+  */
   const dataToLoad = [];
   for (const [table, rows] of Object.entries(data)) {
     for (const row of rows) {
-      dataToLoad.push({ model: table, data: row });
+      const objData = { model: table, data: row };
+      console.log({row})
+      if (row.password) {
+        
+        objData.data.hash = bcrypt.hashSync(row.password, 10);
+      }
+      dataToLoad.push(objData);
     }
   }
   //from file
   sequelize_fixtures.loadFixtures(dataToLoad, models).then(function(){
     console.log("Data loaded");
   });
+}
+export function initializeData(sequelize){
+  // Load the models mapping
+  const models = {
+    'employees': employeeModel(sequelize),
+    'users': userModel(sequelize)
+  }
+
+  const employeesData = require('../../data.json');
+  const usersData = require('../../users.json');
+  initializeFixtures({data: employeesData, models});
+  initializeFixtures({data: usersData, models});
 }
