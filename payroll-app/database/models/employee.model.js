@@ -1,4 +1,4 @@
-import { DataTypes } from 'sequelize';
+const { DataTypes } = require('sequelize');
 
 export function employeeModel(sequelize) {
   const attributes = {
@@ -20,3 +20,4 @@ export function employeeModel(sequelize) {
 
   return sequelize.define('Employee', attributes, options);
 }
+

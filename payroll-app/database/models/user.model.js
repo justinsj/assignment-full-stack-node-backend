@@ -1,5 +1,5 @@
 // sequelize models with schema definitions
-import { DataTypes } from 'sequelize';
+const { DataTypes } = require('sequelize');
 
 export function userModel(sequelize) {
   const attributes = {
@@ -22,4 +22,5 @@ export function userModel(sequelize) {
 
   return sequelize.define('User', attributes, options);
 }
+
 

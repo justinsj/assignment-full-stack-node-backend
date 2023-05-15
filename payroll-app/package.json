@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint"
+        "lint": "next lint",
+        "mystart": "node --require ./database/server-preload.js ./node_modules/.bin/next dev"
     },
     "dependencies": {
         "@hookform/resolvers": "^3.1.0",
@@ -24,6 +25,7 @@
         "react-hook-form": "^7.43.9",
         "rxjs": "^7.8.0",
         "sequelize": "^6.31.0",
+        "sequelize-fixtures": "^1.2.0",
         "yup": "^1.1.1"
     }
 }
