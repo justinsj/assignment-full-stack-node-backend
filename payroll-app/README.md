@@ -24,7 +24,7 @@ npm install
 ## Usage
 1. Start the MySQL database
 ```
-docker-compose -f database\docker-compose-windows.yaml up
+docker-compose -f database\docker-compose.yaml up
 ```
 
 2. Initialize the data in the database
