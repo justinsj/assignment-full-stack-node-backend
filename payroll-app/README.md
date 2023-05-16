@@ -22,3 +22,15 @@ npm run init-db
 ```
 npm run dev
 ```
+
+## Production 
+1. Update the db root password in the `.env` file
+2. Update the db root password in the `database/db_root_password.secret` file
+3. Build the server (this may take a few minutes)
+```
+npm run build
+```
+4. Start the server
+```
+npm run start
+```
