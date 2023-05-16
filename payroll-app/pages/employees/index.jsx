@@ -99,67 +99,69 @@ function Index() {
   return (
     <Layout>
       <h1>EMPLOYEES</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th
-              style={{ width: '30%', cursor: 'pointer' }}
-              onClick={() => handleSort('firstName')}
-            >
-              First Name {sortState.column === 'firstName' && <SortArrow direction={sortState.direction} />}
-            </th>
-            <th
-              style={{ width: '30%', cursor: 'pointer' }}
-              onClick={() => handleSort('lastName')}
-            >
-              Last Name {sortState.column === 'lastName' && <SortArrow direction={sortState.direction} />}
-            </th>
-            <th
-              style={{ width: '30%', cursor: 'pointer' }}
-              onClick={() => handleSort('salary')}
-            >
-              Salary {sortState.column === 'salary' && <SortArrow direction={sortState.direction} />}
-            </th>
-            <th style={{ width: '10%', textAlign: 'center' }}>Options</th>
-          </tr>
-        </thead>
-        <tbody>
-        {employees && employees.map(employee =>
-            <tr key={employee.id}>
-              <td>{employee.firstName}</td>
-              <td>{employee.lastName}</td>
-              <td>
-                <CurrencyFormat value={employee.salary} displayType={'text'} thousandSeparator={true} prefix={'$'} />
-              </td>
-              <td style={{ whiteSpace: 'nowrap' }}>
-                <Link href={`/employees/edit/${employee.id}`} className="btn btn-edit me-1">Edit</Link>
-                <button
-                  onClick={() => deleteEmployee(employee.id)}
-                  className="btn btn-delete"
-                  style={{ width: '60px' }}
-                  disabled={employee.isDeleting}
-                >
-                  {employee.isDeleting ? <span className="spinner-border spinner-border-sm"></span> : <span>Delete</span>}
-                </button>
-              </td>
-            </tr>
-          )}
-          {!employees &&
+      <div className="overflow-auto mb-2">
+        <table className="table">
+          <thead>
             <tr>
-              <td colSpan="4">
-                <Spinner />
-              </td>
+              <th
+                style={{ width: '30%', cursor: 'pointer' }}
+                onClick={() => handleSort('firstName')}
+              >
+                First Name {sortState.column === 'firstName' && <SortArrow direction={sortState.direction} />}
+              </th>
+              <th
+                style={{ width: '30%', cursor: 'pointer' }}
+                onClick={() => handleSort('lastName')}
+              >
+                Last Name {sortState.column === 'lastName' && <SortArrow direction={sortState.direction} />}
+              </th>
+              <th
+                style={{ width: '30%', cursor: 'pointer' }}
+                onClick={() => handleSort('salary')}
+              >
+                Salary {sortState.column === 'salary' && <SortArrow direction={sortState.direction} />}
+              </th>
+              <th style={{ width: '10%', textAlign: 'center' }}>Options</th>
             </tr>
-          }
-          {employees && !employees.length &&
-            <tr>
-              <td colSpan="4" className="text-center">
-                <div className="p-2">No Employees To Display</div>
-              </td>
-            </tr>
-          }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+          {employees && employees.map(employee =>
+              <tr key={employee.id}>
+                <td>{employee.firstName}</td>
+                <td>{employee.lastName}</td>
+                <td>
+                  <CurrencyFormat value={employee.salary} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                </td>
+                <td style={{ whiteSpace: 'nowrap' }}>
+                  <Link href={`/employees/edit/${employee.id}`} className="btn btn-edit me-1">Edit</Link>
+                  <button
+                    onClick={() => deleteEmployee(employee.id)}
+                    className="btn btn-delete"
+                    style={{ width: '60px' }}
+                    disabled={employee.isDeleting}
+                  >
+                    {employee.isDeleting ? <span className="spinner-border spinner-border-sm"></span> : <span>Delete</span>}
+                  </button>
+                </td>
+              </tr>
+            )}
+            {!employees &&
+              <tr>
+                <td colSpan="4">
+                  <Spinner />
+                </td>
+              </tr>
+            }
+            {employees && !employees.length &&
+              <tr>
+                <td colSpan="4" className="text-center">
+                  <div className="p-2">No Employees To Display</div>
+                </td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
       {/* Wrap the Add Employee button in a div to put it in a row above the pagination elements */}
       <div className="d-flex">
         <Link href="/employees/add" className="btn btn-primary ms-auto mb-2">Add Employee</Link>

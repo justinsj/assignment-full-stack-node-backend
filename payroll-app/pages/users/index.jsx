@@ -111,63 +111,65 @@ function Index() {
     return (
         <Layout>
             <h1>USERS</h1>
-            <table className="table">
-                <thead>
-                    <tr>
-                        <th
-                            style={{ width: '30%', cursor: 'pointer' }}
-                            onClick={() => handleSort('firstName')}
-                            >
-                            First Name {sortState.column === 'firstName' && <SortArrow direction={sortState.direction} />}
-                        </th>
-                        <th
-                            style={{ width: '30%', cursor: 'pointer' }}
-                            onClick={() => handleSort('lastName')}
-                        >
-                            Last Name {sortState.column === 'lastName' && <SortArrow direction={sortState.direction} />}
-                        </th>
-                        <th
-                            style={{ width: '30%', cursor: 'pointer' }}
-                            onClick={() => handleSort('username')}
-                        >
-                            Username {sortState.column === 'username' && <SortArrow direction={sortState.direction} />}
-                        </th>
-                        <th style={{ width: '10%', textAlign: 'center' }}>Options</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {users && users.map(user =>
-                        <tr key={user.id}>
-                            <td>{user.firstName}</td>
-                            <td>{user.lastName}</td>
-                            <td>{user.username}</td>
-                            <td style={{ whiteSpace: 'nowrap' }}>
-                                <Link href={`/users/edit/${user.id}`} className="btn btn-edit mr-1">Edit</Link>
-                                <button onClick={() => deleteUser(user.id)} className="btn btn-delete" style={{ width: '60px' }} disabled={user.isDeleting}>
-                                    {user.isDeleting
-                                        ? <span className="spinner-border spinner-border-sm"></span>
-                                        : <span>Delete</span>
-                                    }
-                                </button>
-                            </td>
-                        </tr>
-                    )}
-                    {!users &&
-                        <tr>
-                            <td colSpan="4">
-                                <Spinner />
-                            </td>
-                        </tr>
-                    }
-                    {users && !users.length &&
-                        <tr>
-                            <td colSpan="4" className="text-center">
-                                <div className="p-2">No Users To Display</div>
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
+            <div className="overflow-auto mb-2">
+              <table className="table">
+                  <thead>
+                      <tr>
+                          <th
+                              style={{ width: '30%', cursor: 'pointer' }}
+                              onClick={() => handleSort('firstName')}
+                              >
+                              First Name {sortState.column === 'firstName' && <SortArrow direction={sortState.direction} />}
+                          </th>
+                          <th
+                              style={{ width: '30%', cursor: 'pointer' }}
+                              onClick={() => handleSort('lastName')}
+                          >
+                              Last Name {sortState.column === 'lastName' && <SortArrow direction={sortState.direction} />}
+                          </th>
+                          <th
+                              style={{ width: '30%', cursor: 'pointer' }}
+                              onClick={() => handleSort('username')}
+                          >
+                              Username {sortState.column === 'username' && <SortArrow direction={sortState.direction} />}
+                          </th>
+                          <th style={{ width: '10%', textAlign: 'center' }}>Options</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      {users && users.map(user =>
+                          <tr key={user.id}>
+                              <td>{user.firstName}</td>
+                              <td>{user.lastName}</td>
+                              <td>{user.username}</td>
+                              <td style={{ whiteSpace: 'nowrap' }}>
+                                  <Link href={`/users/edit/${user.id}`} className="btn btn-edit mr-1">Edit</Link>
+                                  <button onClick={() => deleteUser(user.id)} className="btn btn-delete" style={{ width: '60px' }} disabled={user.isDeleting}>
+                                      {user.isDeleting
+                                          ? <span className="spinner-border spinner-border-sm"></span>
+                                          : <span>Delete</span>
+                                      }
+                                  </button>
+                              </td>
+                          </tr>
+                      )}
+                      {!users &&
+                          <tr>
+                              <td colSpan="4">
+                                  <Spinner />
+                              </td>
+                          </tr>
+                      }
+                      {users && !users.length &&
+                          <tr>
+                              <td colSpan="4" className="text-center">
+                                  <div className="p-2">No Users To Display</div>
+                              </td>
+                          </tr>
+                      }
+                  </tbody>
+              </table>
+            </div>
             <div className="d-flex">
               <Link href="/users/add" className="btn btn-primary ms-auto mb-2">Add Users</Link>
             </div>

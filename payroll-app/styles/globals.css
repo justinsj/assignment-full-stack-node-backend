@@ -126,3 +126,12 @@ tbody {
     outline: 0;
     box-shadow: 0 0 0 0.25rem #5D707F40;
 }
+
+/* Fix small screen width fitting */ 
+.app-container {
+    width: 100%;   
+}
+
+.table {
+    margin-bottom: 0;
+}

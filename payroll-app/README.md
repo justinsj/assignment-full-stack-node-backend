@@ -27,7 +27,10 @@ This app implements the following features:
 </ul>
 
 <li style="list-style-type: '✔️'"> Initialize the database with data from a JSON file
-
+<li style="list-style-type: '✨'"> BONUS
+<ul> 
+  <li style="list-style-type: '✨'"> Responsive (mobile-friendly) UI
+</ul>
 
 
 ## Installation
