@@ -10,27 +10,19 @@ This app implements the following features:
   <li style="list-style-type: '✔️'"> Edit employee (Read & Update)
   <li style="list-style-type: '✔️'"> Delete employee
   <li style="list-style-type: '✔️'"> List employees
-  <li style="list-style-type: '✨'"> BONUS
-  <ul> 
-    <li style="list-style-type: '✨'"> Paginate employees
-    <li style="list-style-type: '✨'"> Paginate employees
-  </ul>
+  <li style="list-style-type: ''"> ✨BONUS✨: Paginate employees
+  <li style="list-style-type: ''"> ✨BONUS✨: Paginate employees
+
 </ul>
 
 <li style="list-style-type: '✔️'"> Integrate with a back-end API (using Next.js) and MySQL database
 <ul>
-  <li style="list-style-type: '✨'"> BONUS
-  <ul> 
-    <li style="list-style-type: '✨'"> Uses docker-compose to set up & start the database
-    <li style="list-style-type: '✨'"> Credentials can be set up using externalized .env / .secret files
-  </ul>
+  <li style="list-style-type: ''"> ✨BONUS✨: Uses docker-compose to set up & start the database
+  <li style="list-style-type: ''">✨BONUS✨: Credentials can be set up using externalized .env / .secret files
 </ul>
 
 <li style="list-style-type: '✔️'"> Initialize the database with data from a JSON file
-<li style="list-style-type: '✨'"> BONUS
-<ul> 
-  <li style="list-style-type: '✨'"> Responsive (mobile-friendly) UI
-</ul>
+<li style="list-style-type: ''"> ✨BONUS✨: Responsive (mobile-friendly) UI
 
 
 ## Installation
