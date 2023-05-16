@@ -35,9 +35,55 @@ async function authenticate({ username, password }) {
     };
 }
 
-async function getAll() {
-    return await db.User.findAll();
-}
+async function getAll({ page, pageSize, sortColumn, sortDirection }) {
+    const offset = (page - 1) * pageSize;
+    const limit = pageSize;
+  
+    let orderBy = [['id', 'ASC']]; // Default sort order
+  
+    // Check if sorting is requested
+    if (sortColumn && sortDirection) {
+      let columnName;
+  
+      // Determine the column name in the database based on the sortColumn value
+      switch (sortColumn) {
+        case 'firstName':
+          columnName = 'firstName';
+          break;
+        case 'lastName':
+          columnName = 'lastName';
+          break;
+        case 'username':
+          columnName = 'username';
+          break;
+        default:
+          columnName = 'id';
+      }
+  
+      // Determine the sort order based on the sortDirection value
+      switch (sortDirection) {
+        case 'asc':
+          orderBy = [[columnName, 'ASC']];
+          break;
+        case 'desc':
+          orderBy = [[columnName, 'DESC']];
+          break;
+      }
+    }
+  
+    const users = await db.User.findAndCountAll({
+      offset,
+      limit,
+      order: orderBy, // Apply the sort order
+    });
+  
+    const data = users.rows;
+    const totalItems = users.count;
+    const totalPages = Math.ceil(totalItems / pageSize);
+  
+    return { data, totalPages };
+  }
+  
 
 async function getById(id) {
     return await db.User.findByPk(id);

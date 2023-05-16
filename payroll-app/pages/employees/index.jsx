@@ -21,7 +21,7 @@ function Index() {
   const [employees, setEmployees] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(null);
-  const [sortState, setSortState] = useState(initialSortState); // Add sort state
+  const [sortState, setSortState] = useState(initialSortState);
 
   useEffect(() => {
     employeeService.getAll({

@@ -41,8 +41,8 @@ async function register(user) {
     await fetchWrapper.post(`${baseUrl}/register`, user);
 }
 
-async function getAll() {
-    return await fetchWrapper.get(baseUrl);
+async function getAll(body) {
+    return await fetchWrapper.post(baseUrl, body);
 }
 
 async function getById(id) {
