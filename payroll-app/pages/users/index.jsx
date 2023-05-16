@@ -68,7 +68,6 @@ function Index() {
                 sortColumn: sortState.column,
                 sortDirection: sortState.direction,
             }).then(({ data, totalPages }) => {
-                console.log({data, totalPages});
                 setTotalPages(totalPages);
                 if (data.length === 0 && totalPages > 0) {
                     setCurrentPage(currentPage - 1);
