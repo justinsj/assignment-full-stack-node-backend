@@ -1,18 +1,34 @@
 # Payroll App
+
+![](example.PNG)
+
 This app implements the following features:
-- Visualize Employee Table
-  - Create employee
-  - Edit employee (Read & Update)
-  - Delete employee
-  - List employees
-  - BONUS: 
-    - Paginate employees
-    - Sort employees by column
-- Integrate with a back-end API (using Next.js) and MySQL database
-  - BONUS:
-    - Uses docker-compose to set up & start the database
-    - Credentials can be set up using externalized .env / .secret files
-- Initialize the database with data from a JSON file
+
+<li style="list-style-type: '✔️'"> Visualize Employee Table
+<ul>
+  <li style="list-style-type: '✔️'"> Create employee
+  <li style="list-style-type: '✔️'"> Edit employee (Read & Update)
+  <li style="list-style-type: '✔️'"> Delete employee
+  <li style="list-style-type: '✔️'"> List employees
+  <li style="list-style-type: '✨'"> BONUS
+  <ul> 
+    <li style="list-style-type: '✨'"> Paginate employees
+    <li style="list-style-type: '✨'"> Paginate employees
+  </ul>
+</ul>
+
+<li style="list-style-type: '✔️'"> Integrate with a back-end API (using Next.js) and MySQL database
+<ul>
+  <li style="list-style-type: '✨'"> BONUS
+  <ul> 
+    <li style="list-style-type: '✨'"> Uses docker-compose to set up & start the database
+    <li style="list-style-type: '✨'"> Credentials can be set up using externalized .env / .secret files
+  </ul>
+</ul>
+
+<li style="list-style-type: '✔️'"> Initialize the database with data from a JSON file
+
+
 
 ## Installation
 1. Make sure Docker is installed (for the MySQL database).
