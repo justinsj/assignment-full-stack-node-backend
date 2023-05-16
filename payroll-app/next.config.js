@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+require('dotenv').config();
+
 const nextConfig = {
     reactStrictMode: true,
     serverRuntimeConfig: {
@@ -6,7 +9,7 @@ const nextConfig = {
             host: 'localhost',
             port: 3306,
             user: 'root',
-            password: '2204', // @@@
+            password: process.env.DB_ROOT_PASSWORD,
             database: 'db'
         },
         secret: 'abcdefg'

@@ -9,6 +9,8 @@ import { employeeService } from 'services';
 
 export default Index;
 
+// TODO add pagination 
+// TODO add sorting
 function Index() {
     const [employees, setEmployees] = useState(null);
 
@@ -36,7 +38,7 @@ function Index() {
                         <th style={{ width: '30%' }}>First Name</th>
                         <th style={{ width: '30%' }}>Last Name</th>
                         <th style={{ width: '30%' }}>Salary</th>
-                        <th style={{ width: '10%' }}></th>
+                        <th style={{ width: '10%' }}>Options</th>
                     </tr>
                 </thead>
                 <tbody>
