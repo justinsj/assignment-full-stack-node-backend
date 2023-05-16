@@ -168,11 +168,12 @@ function Index() {
                     }
                 </tbody>
             </table>
-
+            <div className="d-flex">
+              <Link href="/users/add" className="btn btn-primary ms-auto mb-2">Add Users</Link>
+            </div>
             {totalPages && totalPages > 1 && (
                 <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
             )}
-            <Link href="/users/add" className="btn btn-success float-end">Add User</Link>
         </Layout>
     );
 }

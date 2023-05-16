@@ -160,12 +160,13 @@ function Index() {
           }
         </tbody>
       </table>
-
+      {/* Wrap the Add Employee button in a div to put it in a row above the pagination elements */}
+      <div className="d-flex">
+        <Link href="/employees/add" className="btn btn-primary ms-auto mb-2">Add Employee</Link>
+      </div>
       {totalPages && totalPages > 1 && (
         <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
       )}
-
-      <Link href="/employees/add" className="btn btn-success float-end">Add Employee</Link>
     </Layout>
   );
 }
