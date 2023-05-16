@@ -8,6 +8,13 @@ import { employeeService, alertService } from 'services';
 
 export { AddEdit };
 
+function textUndecorate(text) {
+    return text.replace(/,/g, '').replace('$', '');
+}
+function textDecorate(text) {
+    return '$' + parseFloat(textUndecorate(text)).toLocaleString('en');
+}
+
 function AddEdit(props) {
     const employee = props?.employee;
     const router = useRouter();
@@ -31,7 +38,7 @@ function AddEdit(props) {
         formOptions.defaultValues = props.employee;
         if (props.employee.salary) {
             const value = props.employee.salary.toString();
-            formOptions.defaultValues.salary = parseFloat(value.replace(/,/g, '')).toLocaleString('en');
+            formOptions.defaultValues.salary = textDecorate(value);
         }
     }
 
@@ -81,11 +88,11 @@ function AddEdit(props) {
                     <input name="salary" type="text" {...register('salary')} className={`form-control ${errors.salary ? 'is-invalid' : ''}`} 
                         onBlur={e => {
                             const { value } = e.target;
-                            e.target.value = parseFloat(value.replace(/,/g, '')).toLocaleString('en');
+                            e.target.value = textDecorate(value);
                         }}
                         onFocus={e => {
                             const { value } = e.target;
-                            e.target.value = value.replace(/,/g, '');
+                            e.target.value = textUndecorate(value);
                         }}
                     />
                     <div className="invalid-feedback">{errors.salary?.message}</div>
