@@ -57,7 +57,7 @@ function Index() {
                         <th style={{ width: '30%' }}>First Name</th>
                         <th style={{ width: '30%' }}>Last Name</th>
                         <th style={{ width: '30%' }}>Salary</th>
-                        <th style={{ width: '10%' }}>Options</th>
+                        <th style={{ width: '10%', textAlign: 'center' }}>Options</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -6,7 +6,6 @@ import { Layout } from 'components/users';
 import { userService } from 'services';
 
 export default Index;
-// TODO set options to be centered (also in employees)
 
 function Index() {
     const [users, setUsers] = useState(null);
@@ -34,7 +33,7 @@ function Index() {
                         <th style={{ width: '30%' }}>First Name</th>
                         <th style={{ width: '30%' }}>Last Name</th>
                         <th style={{ width: '30%' }}>Username</th>
-                        <th style={{ width: '10%'}}>Options</th>
+                        <th style={{ width: '10%', textAlign: 'center' }}>Options</th>
                     </tr>
                 </thead>
                 <tbody>
