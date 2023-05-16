@@ -12,9 +12,21 @@ export const employeesRepo = {
     delete: _delete
 };
 
-async function getAll() {
-    return await db.Employee.findAll();
+async function getAll({ page, pageSize }) {
+    const offset = (page - 1) * pageSize;
+    const limit = pageSize;
+    const employees = await db.Employee.findAndCountAll({
+        offset,
+        limit,
+    });
+
+    const data = employees.rows;
+    const totalItems = employees.count;
+    const totalPages = Math.ceil(totalItems / pageSize);
+
+    return { data, totalPages };
 }
+
 
 async function getById(id) {
     return await db.Employee.findByPk(id);
