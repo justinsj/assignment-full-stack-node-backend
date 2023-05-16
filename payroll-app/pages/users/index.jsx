@@ -2,9 +2,10 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { Spinner } from 'components';
+import Pagination from 'components/Pagination';
+import { SortArrow, nextDirection } from 'components/SortArrow';
 import { Layout } from 'components/users';
 import { userService } from 'services';
-import Pagination from 'components/Pagination';
 export default Index;
 
 
@@ -167,13 +168,3 @@ function Index() {
     );
 }
 
-// Component to render the sorting arrow
-function SortArrow({ direction }) {
-    if (direction === 'asc') {
-      return <span>&#9650;</span>; // Up arrow
-    } else if (direction === 'desc') {
-      return <span>&#9660;</span>; // Down arrow
-    } else {
-      return null;
-    }
-  }

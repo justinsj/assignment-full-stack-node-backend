@@ -2,10 +2,11 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { Spinner } from 'components';
+import Pagination from 'components/Pagination';
+import { SortArrow, nextDirection } from 'components/SortArrow';
 import { Layout } from 'components/employees';
 import CurrencyFormat from 'react-currency-format';
 import { employeeService } from 'services';
-import Pagination from 'components/Pagination';
 
 export default Index;
 
@@ -55,11 +56,6 @@ function Index() {
     });
   }
 
-  function nextDirection(direction) {
-    if (direction === 'asc') return 'desc';
-    if (direction === 'desc') return null;
-    return 'asc';
-  }
   function handlePageChange(page) {
     setCurrentPage(page);
   }
@@ -163,15 +159,3 @@ function Index() {
     </Layout>
   );
 }
-
-// Component to render the sorting arrow
-function SortArrow({ direction }) {
-  if (direction === 'asc') {
-    return <span>&#9650;</span>; // Up arrow
-  } else if (direction === 'desc') {
-    return <span>&#9660;</span>; // Down arrow
-  } else {
-    return null;
-  }
-}
-
