@@ -11,7 +11,7 @@ This app implements the following features:
   <li style="list-style-type: '✔️'"> Delete employee
   <li style="list-style-type: '✔️'"> List employees
   <li style="list-style-type: ''"> ✨BONUS✨: Paginate employees
-  <li style="list-style-type: ''"> ✨BONUS✨: Paginate employees
+  <li style="list-style-type: ''"> ✨BONUS✨: Sort employees
 
 </ul>
 
