@@ -18,7 +18,10 @@ function AddEdit(props) {
             .required('First Name is required'),
         lastName: Yup.string()
             .required('Last Name is required'),
+
+        // Remove commas and symbols
         salary: Yup.string()
+            .transform(x => x.replaceAll(',', ''))
             .required('Salary is required')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };
@@ -26,6 +29,10 @@ function AddEdit(props) {
     // set default form values if in edit mode
     if (employee) {
         formOptions.defaultValues = props.employee;
+        if (props.employee.salary) {
+            const value = props.employee.salary.toString();
+            formOptions.defaultValues.salary = parseFloat(value.replace(/,/g, '')).toLocaleString('en');
+        }
     }
 
     // get functions to build form with useForm() hook
@@ -71,7 +78,16 @@ function AddEdit(props) {
             <div className="row">
                 <div className="mb-3 col">
                     <label className="form-label">Salary</label>
-                    <input name="salary" type="text" {...register('salary')} className={`form-control ${errors.salary ? 'is-invalid' : ''}`} />
+                    <input name="salary" type="text" {...register('salary')} className={`form-control ${errors.salary ? 'is-invalid' : ''}`} 
+                        onBlur={e => {
+                            const { value } = e.target;
+                            e.target.value = parseFloat(value.replace(/,/g, '')).toLocaleString('en');
+                        }}
+                        onFocus={e => {
+                            const { value } = e.target;
+                            e.target.value = value.replace(/,/g, '');
+                        }}
+                    />
                     <div className="invalid-feedback">{errors.salary?.message}</div>
                 </div>
             </div>
