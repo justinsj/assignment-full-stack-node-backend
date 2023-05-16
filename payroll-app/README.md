@@ -15,7 +15,7 @@ This app implements the following features:
 - Initialize the database with data from a JSON file
 
 ## Installation
-1. Do the setup in the [`database`](./database/) folder.
+1. Make sure Docker is installed (for the MySQL database).
 2. Install the dependencies for the Payroll App.
 ```
 npm install
