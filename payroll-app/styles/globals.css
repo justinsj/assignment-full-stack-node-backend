@@ -15,10 +15,60 @@
     --button-tertiary-color: #FA1A1A;
 
     --primary-color: #F58F1B;
+    --primary-faded-color: #d57f1d;
+    --primary-faded-2x-color: #c27216;
+    --primary-faded-3x-color: #b96c13;
     --secondary-color: #5D707F;
+    --secondary-faded-color: #485661;
+    --secondary-faded-2x-color: #3c4851;
+    --secondary-faded-3x-color: #2e373e;
     --tertiary-color: #67B9B3;
-    /* Override colors */
+}
 
+:root {
+    --bs-link-color: var(--primary-color);
+    --bs-link-hover-color: var(--primary-faded-color);
+}
+.btn-primary {
+    /* Override colors */
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--primary-color);
+    --bs-btn-border-color: var(--primary-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--primary-faded-color);
+    --bs-btn-hover-border-color: var(--primary-faded-2x-color);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--primary-faded-2x-color);
+    --bs-btn-active-border-color: var(--primary-faded-3x-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--primary-color);
+    --bs-btn-disabled-border-color: var(--primary-color);
+}
+
+.btn-secondary {
+    /* Override colors */
+    --bs-btn-color: #fff;
+    --bs-btn-bg: var(--secondary-color);
+    --bs-btn-border-color: var(--secondary-color);
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: var(--secondary-faded-color);
+    --bs-btn-hover-border-color: var(--secondary-faded-2x-color);
+    --bs-btn-focus-shadow-rgb: 49,132,253;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: var(--secondary-faded-2x-color);
+    --bs-btn-active-border-color: var(--secondary-faded-3x-color);
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #fff;
+    --bs-btn-disabled-bg: var(--secondary-color);
+    --bs-btn-disabled-border-color: var(--secondary-color);
+}
+
+
+.pagination {
+    --bs-pagination-active-bg: var(--primary-color);
+    --bs-pagination-active-border-color: var(--primary-color);
 }
 
 a { cursor: pointer; text-decoration: none; }
@@ -69,4 +119,10 @@ th {
 tbody {
     border-top-width: 1px;
     border-bottom-width: 1px;
+}
+
+.form-control:focus {
+    border-color: var(--secondary-faded-color);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #5D707F40;
 }
