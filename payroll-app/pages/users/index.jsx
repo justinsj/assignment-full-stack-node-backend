@@ -52,22 +52,32 @@ function Index() {
       }
 
       function deleteUser(id) {
-        const updatedUsers = users.map(x => {
-          if (x.id === id) {
-            x.isDeleting = true;
-          }
-          return x;
-        });
-        setUsers(updatedUsers);
-        // Handle case of deleting the last user on the page
+        setUsers(users =>
+          users.map(x => {
+            if (x.id === id) {
+              x.isDeleting = true;
+            }
+            return x;
+          })
+        );
+      
         userService.delete(id).then(() => {
-          const index = updatedUsers.findIndex(x => x.id === id);
-          const newUsers = [...updatedUsers.slice(0, index), ...updatedUsers.slice(index + 1)];
-          if (newUsers.length === 0 && totalPages > 1) {
-            setCurrentPage(currentPage - 1);
-          } else {
-            setUsers(newUsers);
-          }
+            userService.getAll({
+                page: currentPage,
+                pageSize: PAGE_SIZE,
+                sortColumn: sortState.column,
+                sortDirection: sortState.direction,
+            }).then(({ data, totalPages }) => {
+                console.log({data, totalPages});
+                setTotalPages(totalPages);
+                if (data.length === 0 && totalPages > 0) {
+                    setCurrentPage(currentPage - 1);
+                }
+                else {
+                    setUsers(data);
+                }
+                
+            });
         });
       }
 

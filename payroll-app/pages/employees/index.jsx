@@ -37,24 +37,35 @@ function Index() {
   }, [currentPage, sortState.column, sortState.direction]); // Add sort state dependencies
 
   function deleteEmployee(id) {
-    const updatedEmployees = employees.map(x => {
-      if (x.id === id) {
-        x.isDeleting = true;
-      }
-      return x;
-    });
-    setEmployees(updatedEmployees);
-    // Handle case of deleting the last employee on the page
+    setEmployees(employees =>
+      employees.map(x => {
+        if (x.id === id) {
+          x.isDeleting = true;
+        }
+        return x;
+      })
+    );
+  
     employeeService.delete(id).then(() => {
-      const index = updatedEmployees.findIndex(x => x.id === id);
-      const newEmployees = [...updatedEmployees.slice(0, index), ...updatedEmployees.slice(index + 1)];
-      if (newEmployees.length === 0 && totalPages > 1) {
-        setCurrentPage(currentPage - 1);
-      } else {
-        setEmployees(newEmployees);
-      }
+        employeeService.getAll({
+            page: currentPage,
+            pageSize: PAGE_SIZE,
+            sortColumn: sortState.column,
+            sortDirection: sortState.direction,
+        }).then(({ data, totalPages }) => {
+            console.log({data, totalPages});
+            setTotalPages(totalPages);
+            if (data.length === 0 && totalPages > 0) {
+                setCurrentPage(currentPage - 1);
+            }
+            else {
+                setEmployees(data);
+            }
+            
+        });
     });
   }
+  
 
   function handlePageChange(page) {
     setCurrentPage(page);
