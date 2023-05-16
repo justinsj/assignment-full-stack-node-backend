@@ -21,7 +21,6 @@ export const employeeService = {
 
 
 async function register(employee) {
-    console.log({employee});
     await fetchWrapper.post(`${baseUrl}/register`, employee);
 }
 

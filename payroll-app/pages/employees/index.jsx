@@ -14,7 +14,6 @@ export default Index;
 function Index() {
     const [employees, setEmployees] = useState(null);
 
-    console.log({employees})
     useEffect(() => {
         employeeService.getAll().then(x => setEmployees(x));
     }, []);
