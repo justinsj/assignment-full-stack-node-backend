@@ -2,31 +2,39 @@
 @tailwind components;
 @tailwind utilities; */
 
+/* TODO style with eCapital colors */
+
 /* Define colors */
 :root {
-    --main-color:#1F1F1F;
-    --secondary-color: #9EAAB2;
-    --tertiary-color: #5E717F;
+    --text-primary-color:#1F1F1F;
+    --text-secondary-color: #9EAAB2;
+    --text-tertiary-color: #5E717F;
     --black: #000000;
     --button-primary-color: #74DB35;
     --button-secondary-color: #FD792E;
     --button-tertiary-color: #FA1A1A;
+
+    --primary-color: #F58F1B;
+    --secondary-color: #5D707F;
+    --tertiary-color: #67B9B3;
+    /* Override colors */
+
 }
 
 a { cursor: pointer; text-decoration: none; }
 
 
 h1 {
-    color: var(--main-color);
+    color: var(--text-primary-color);
 }
 
 th {
     font-weight: 500;
-    color: var(--secondary-color);
+    color: var(--text-secondary-color);
 }
 
 .table td {
-    color: var(--tertiary-color);
+    color: var(--text-tertiary-color);
     vertical-align: middle;
     font-weight: 500;
 }
