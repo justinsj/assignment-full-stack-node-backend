@@ -7,6 +7,8 @@ services:
       MYSQL_DATABASE: 'db'
       # Password for root access
       MYSQL_ROOT_PASSWORD_FILE: /run/secrets/db_root_password
+      MYSQL_PORT: '3306'
+      MYSQL_ROOT_HOST: '%' # Allow root access from any host
     secrets:
       - db_root_password
     ports:
@@ -19,9 +21,22 @@ services:
     volumes:
       - my-db:/var/lib/mysql
 
+  app:
+    image: payroll-app:latest
+    restart: always
+    environment:
+      DB_IP: db
+    depends_on:
+      - db
+    ports:
+      - '3000:3000'
+    expose:
+      # Opens port 3306 on the container
+      - '3000'
+
 secrets:
   db_root_password:
-    file: db_root_password.secret
+    file: database/db_root_password.secret
 # Names our volume
 volumes:
   my-db:
