@@ -28,7 +28,7 @@ function AddEdit(props) {
 
         // Remove commas and symbols
         salary: Yup.string()
-            .transform(x => x.replaceAll(',', ''))
+            .transform(x => textUndecorate(x))
             .required('Salary is required')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };

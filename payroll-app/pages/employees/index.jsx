@@ -11,6 +11,7 @@ import { employeeService } from 'services';
 export default Index;
 
 const PAGE_SIZE = 5;
+const CURRENCY_NUM_DECIMALS = 2;
 
 // Define initial sorting state
 const initialSortState = {
@@ -130,7 +131,7 @@ function Index() {
                 <td>{employee.firstName}</td>
                 <td>{employee.lastName}</td>
                 <td>
-                  <CurrencyFormat value={employee.salary} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                  <CurrencyFormat decimalScale={CURRENCY_NUM_DECIMALS} value={employee.salary} displayType={'text'} thousandSeparator={true} prefix={'$'} />
                 </td>
                 <td style={{ whiteSpace: 'nowrap' }}>
                   <Link href={`/employees/edit/${employee.id}`} className="btn btn-edit me-1">Edit</Link>

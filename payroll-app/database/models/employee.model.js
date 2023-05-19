@@ -4,7 +4,7 @@ export function employeeModel(sequelize) {
   const attributes = {
       firstName: { type: DataTypes.STRING, allowNull: false },
       lastName: { type: DataTypes.STRING, allowNull: false },
-      salary: { type: DataTypes.DECIMAL, allowNull: false }
+      salary: { type: DataTypes.DECIMAL(65, 30), allowNull: false }
   };
 
   const options = {
